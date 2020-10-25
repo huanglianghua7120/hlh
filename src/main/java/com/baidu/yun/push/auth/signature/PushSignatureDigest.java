@@ -37,5 +37,6 @@ public class PushSignatureDigest {
 	public boolean checkParams(Map<String, String> params) {
 		return false;
 	}
-	
+	//我再更新下试试
+
 }
