@@ -1,0 +1,189 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.sie.saaf</groupId>
+	<artifactId>SaafMessageModel</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>SaafMessageModel</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>com.sie.saaf</groupId>
+		<artifactId>saaf-parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>../SaafProjectMaster/pom.xml</relativePath>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring-version>4.0.5.RELEASE</spring-version>
+		<poi-version>3.13</poi-version>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.sie.saaf</groupId>
+			<artifactId>SaafReportModel</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+	<dependency>
+		<groupId>com.sie.saaf</groupId>
+		<artifactId>saafBaseModel</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</dependency>
+		
+		<dependency>
+			<groupId>wsdl4j</groupId>
+			<artifactId>wsdl4j</artifactId>
+			<version>1.6.3</version>
+		</dependency>
+
+		<!-- 短信 邮件 微信相关jar包-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>4.3.9.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.message</groupId>
+			<artifactId>sieJaxrpcMessage</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.message</groupId>
+			<artifactId>sieEmailMessage</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.message</groupId>
+			<artifactId>sieCommons-discovery-0.2Message</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.message</groupId>
+			<artifactId>sieAxisMessage</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		
+		<!-- MQ相关jar包-->
+
+		<dependency>
+			<groupId>com.sie</groupId>
+			<artifactId>sieActiveMQ</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-client</artifactId>
+			<version>5.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-spring</artifactId>
+			<version>5.9.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.activemq/activemq-osgi -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-osgi</artifactId>
+			<version>5.9.1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>*</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!--mail相关jar-->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+
+
+	</dependencies>
+
+
+	<build>
+		<finalName>SaafMessageModel</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<!-- 指定Maven仓库 -->
+	<!--<repositories>
+		&lt;!&ndash; my的maven仓库 &ndash;&gt;
+		<repository>
+			<id>myRepository</id>
+			<name>local private nexus</name>
+			<url>http://192.168.173.22:6888/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>-->
+
+
+	<!-- 指定maven plugin仓库 -->
+	<!--<pluginRepositories>
+		&lt;!&ndash; maven plugin仓库 &ndash;&gt;
+		<pluginRepository>
+			<id>myPluginRepository</id>
+			<name>local private nexus</name>
+			<url>http://192.168.173.22:6888/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>-->
+
+
+	<!--发布到新的库 -->
+	<!--<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Deploy Server</name>
+			<url>http://192.168.173.22:6888/nexus/content/repositories/thirdparty/</url>
+		</repository>
+	</distributionManagement>-->
+
+</project>
