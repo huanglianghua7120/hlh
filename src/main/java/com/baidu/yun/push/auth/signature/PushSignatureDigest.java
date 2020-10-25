@@ -39,4 +39,5 @@ public class PushSignatureDigest {
 	}
 	//我再更新下试试
 	//创建新的分支，测试一下
+	//只在本地库，不提交远程但是要合并到master
 }
